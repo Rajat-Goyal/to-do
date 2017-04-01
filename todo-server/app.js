@@ -14,8 +14,8 @@ var api = require('./routes/api')
 var app = express();
 
 //mongoose connection
-//mongoose.connect(db.url);
-console.log(db.url);
+mongoose.connect(db.url());
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
