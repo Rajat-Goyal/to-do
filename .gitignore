@@ -28,3 +28,5 @@ todo-server/node_modules
 
 # Debug log from npm
 todo-server/npm-debug.log
+
+todo-server/mydb.js
