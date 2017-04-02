@@ -2,10 +2,10 @@ var Todo = require('../models/todo');
 
 
 exports.todo_list = function(req, res, next){
-  Todo.find( function(err, todo_list){
+  Todo.find( function(err, todos){
     if(err) { res.send(err);}
     else {
-      res.json(todo_list);
+      res.json(todos);
     }
   });
 
@@ -19,18 +19,31 @@ exports.todo_create = function(req, res, next){
   }, function(err, todo){
     if(err) { res.send(err); }
     else {
-      res.send("done!");
+      console.log("new item : " + req.body.title );
       console.log(todo);
+      Todo.find( function(err, todos){
+        if(err) { res.send(err);}
+        else {
+          res.json(todos);
+        }
+      });
     }
   });
 };
 
 exports.todo_delete = function(req, res, next){
-  Todo.remove({ _id: req.params.todo_id }, function(err, res){
+  console.log("DELETE : " + req.params.todo_id);
+  Todo.remove({ _id: req.params.todo_id }, function(err, todo){
     if(err) { res.send(err); }
     else {
-      res.send(res);
-      console.log("DELETE" + req.params.todo_id);
+      console.log("DELETED! : " + req.params.todo_id);
+      //this.todo_list();
+      Todo.find( function(err, todos){
+        if(err) { res.send(err);}
+        else {
+          res.json(todos);
+        }
+      });
     }
   })
 };
