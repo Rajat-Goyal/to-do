@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html >
+<html ng-app = "mytodo">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,19 +17,18 @@
     <title>HOLLA</title>
     <script src="core.js"></script>
   </head>
-  <body ng-app = "mytodo" >
-
+  <body>
      <div ng-controller="MainController as main" ng-cloak="" layout-gt-xs="row" layout="column" layout-align-gt-xs="center" >
-       <div flex-gt-xs="50" flex="" >
-        <md-toolbar layout="row" >
+       <div flex-gt-xs="50" flex="">
+        <md-content flex layout-fill>
+        <md-toolbar md-scroll-shrink="false" layout="row" >
            <div class="md-toolbar-tools" layout="row" layout-align="center center">
-             <span >Normal</span>
+             <span >ToDo</span>
            </div>
         </md-toolbar>
 
-
-         <md-content>
-           <md-list flex="" class = "make-scrollable">
+         <md-content flex >
+           <md-list  layout-fill>
              <md-list-item class="md-2-line" ng-repeat="item in main.todos" ng-click="main.deleteTodo(item._id)">
                <img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}">
                <div class="md-list-item-text" layout="column">
@@ -41,7 +40,7 @@
          </md-content>
 
          <md-content layout-padding="">
-            <form name="TodoForm">
+            <form flex="" name="TodoForm">
               <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm="30">
                   <label>Title</label>
@@ -58,7 +57,7 @@
              </div>
             </form>
         </md-content>
-
+      </md-content>
        </div>
      </div>
 
