@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 
 
-var db = require('./mydb.js');
+var db = require('./mydb');
 var mongoose = require('mongoose')
 var api = require('./routes/api')
 
