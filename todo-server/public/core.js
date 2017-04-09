@@ -2,17 +2,35 @@ angular
     .module('mytodo', [ 'ngMaterial', 'ngMdIcons' ])
     .controller('MainController', MainController);
 
-MainController.$inject = ['apiService'];
+MainController.$inject = ['apiService', '$mdDialog'];
 
-function MainController( apiService ) {
+function MainController( apiService, $mdDialog ) {
     var self = this;
 
     self.todos = {};
     self.formData = {};
     self.createTodo = createTodo;
     self.deleteTodo = deleteTodo;
+    self.login = login;
 
     activate();
+
+    function login(ev) {
+        $mdDialog.show({
+            controller: 'LoginDialogController',
+            controllerAs: 'vm',
+            templateUrl: 'login-dialog.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose:true,
+            fullscreen: false // Only for -xs, -sm breakpoints.
+        })
+            .then(function() {
+                console.log( 'logged in');
+            }, function() {
+                console.log('Cancelled');
+            });
+    };
 
     function activate() {
         return getTodo().then(function(){
