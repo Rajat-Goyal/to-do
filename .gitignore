@@ -30,3 +30,27 @@ todo-server/node_modules
 todo-server/npm-debug.log
 
 todo-server/mydb.js
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+
+# dependencies
+/node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+ .vscode/*
+ !.vscode/settings.json
+ !.vscode/tasks.json
+ !.vscode/launch.json
+ !.vscode/ex
